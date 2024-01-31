@@ -38,7 +38,7 @@ func main() {
 	type GetResp struct {
 		URL string `json:"url"`
 	}
-	res, err := ReadJSON[GetResp](resp)
+	res, err := httputil.ReadJSON[GetResp](resp)
 	fmt.Printf("url=%s\n", res.URL)
 }
 ```
