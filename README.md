@@ -34,7 +34,7 @@ func main() {
 	resp, err := httputil.Get("https://httpbin.org/get")
 	if err != nil {
 		panic(err)
-  }
+	}
 	type GetResp struct {
 		URL string `json:"url"`
 	}
