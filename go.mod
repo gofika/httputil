@@ -3,11 +3,11 @@ module github.com/gofika/httputil
 go 1.21.6
 
 require (
-	github.com/gofika/fileutil v0.0.0-20240131101026-06f7b430e64a
-	github.com/gofika/regexputil v0.0.0-20240131104326-2f03e34692bf
-	github.com/stretchr/testify v1.8.4
-	golang.org/x/net v0.20.0
-	golang.org/x/text v0.14.0
+	github.com/gofika/fileutil v0.0.0-20240604055302-e4cb1b6868db
+	github.com/gofika/regexputil v0.0.0-20240604070104-a95e993fd7d7
+	github.com/stretchr/testify v1.9.0
+	golang.org/x/net v0.25.0
+	golang.org/x/text v0.15.0
 )
 
 require (
