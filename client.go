@@ -99,6 +99,9 @@ func (c *Client) Do(req *http.Request, opts ...RequestOption) (resp *http.Respon
 	if options.timeout != timeoutZero {
 		timeout = options.timeout
 	}
+	if timeout == timeoutZero {
+		return c.client.Do(req)
+	}
 	ctx, cancel := context.WithTimeout(c.ctx, timeout)
 	defer cancel()
 	return c.client.Do(req.WithContext(ctx))
