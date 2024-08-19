@@ -1,6 +1,6 @@
 module github.com/gofika/httputil
 
-go 1.21.6
+go 1.23
 
 require (
 	github.com/gofika/fileutil v0.0.0-20240604055302-e4cb1b6868db
