@@ -9,7 +9,6 @@ import (
 // ClientOptions http client options
 type ClientOptions struct {
 	userAgent           string
-	timeout             time.Duration
 	proxy               string
 	dialTimeout         time.Duration
 	keepAliveTimeout    time.Duration
@@ -23,15 +22,6 @@ type ClientOption func(*ClientOptions)
 func WithUserAgent(userAgent string) func(*ClientOptions) {
 	return func(options *ClientOptions) {
 		options.userAgent = userAgent
-	}
-}
-
-// WithTimeout If a timeout is set, each HTTP request will use this time as the maximum limit for completing the operation.
-// If not set, the default timeout will be 3 minutes.
-// If you want to use a different time limit for specific requests, you can override the default timeout by using WithRequestTimeout during the request.
-func WithTimeout(timeout time.Duration) func(*ClientOptions) {
-	return func(options *ClientOptions) {
-		options.timeout = timeout
 	}
 }
 
@@ -92,12 +82,5 @@ func WithReferer(referer string) func(*RequestOptions) {
 func WithContentType(contentType string) func(*RequestOptions) {
 	return func(options *RequestOptions) {
 		options.contentType = strings.TrimSpace(contentType)
-	}
-}
-
-// WithRequestTimeout If a timeout is set, each HTTP request will use this time as the maximum limit for completing the operation.
-func WithRequestTimeout(timeout time.Duration) func(*RequestOptions) {
-	return func(options *RequestOptions) {
-		options.timeout = timeout
 	}
 }

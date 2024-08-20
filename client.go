@@ -25,7 +25,6 @@ type Client struct {
 func NewClient(ctx context.Context, opts ...ClientOption) *Client {
 	jar, _ := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
 	options := &ClientOptions{
-		timeout:             3 * time.Minute,
 		dialTimeout:         1 * time.Minute,
 		keepAliveTimeout:    0,
 		tlsHandshakeTimeout: 1 * time.Minute,
@@ -124,17 +123,7 @@ func (c *Client) Do(req *http.Request, opts ...RequestOption) (resp *http.Respon
 		opt(options)
 	}
 	c.fillHeader(req.Header, options)
-	timeout := c.opts.timeout
-	var timeoutZero time.Duration
-	if options.timeout != timeoutZero {
-		timeout = options.timeout
-	}
-	if timeout == timeoutZero {
-		return c.client.Do(req)
-	}
-	ctx, cancel := context.WithTimeout(c.ctx, timeout)
-	defer cancel()
-	return c.client.Do(req.WithContext(ctx))
+	return c.client.Do(req)
 }
 
 // Get issues a GET to the specified URL.
@@ -255,7 +244,7 @@ func (c *Client) PostFormFiles(url string, data url.Values, files []*UploadFile,
 	if err != nil {
 		return nil, err
 	}
-	return c.Do(req, append([]RequestOption{WithContentType(contentType), WithRequestTimeout(time.Hour)}, opts...)...)
+	return c.Do(req, append([]RequestOption{WithContentType(contentType)}, opts...)...)
 }
 
 // PostJSON issues a POST to the specified URL with the given body as JSON.
