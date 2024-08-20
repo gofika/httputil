@@ -26,9 +26,9 @@ func NewClient(ctx context.Context, opts ...ClientOption) *Client {
 	jar, _ := cookiejar.New(&cookiejar.Options{PublicSuffixList: publicsuffix.List})
 	options := &ClientOptions{
 		timeout:             3 * time.Minute,
-		dialTimeout:         10 * time.Second,
+		dialTimeout:         1 * time.Minute,
 		keepAliveTimeout:    0,
-		tlsHandshakeTimeout: 10 * time.Second,
+		tlsHandshakeTimeout: 1 * time.Minute,
 	}
 	for _, opt := range opts {
 		opt(options)
