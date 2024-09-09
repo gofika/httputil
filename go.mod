@@ -7,7 +7,7 @@ require (
 	github.com/gofika/regexputil v0.0.0-20240604070104-a95e993fd7d7
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/net v0.28.0
-	golang.org/x/text v0.17.0
+	golang.org/x/text v0.18.0
 )
 
 require (
