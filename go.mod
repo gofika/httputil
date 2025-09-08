@@ -1,6 +1,6 @@
 module github.com/gofika/httputil
 
-go 1.23.0
+go 1.24.0
 
 toolchain go1.24.1
 
@@ -9,7 +9,7 @@ require (
 	github.com/gofika/regexputil v0.0.0-20240604070104-a95e993fd7d7
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/net v0.43.0
-	golang.org/x/text v0.28.0
+	golang.org/x/text v0.29.0
 )
 
 require (
